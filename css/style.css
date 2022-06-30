@@ -2,6 +2,6 @@ body {
 	background-color: #EDF1F1;
 }
 
-td tr th {
-	height: 70px;
+.card {
+	height: 100%;
 }
