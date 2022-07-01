@@ -20,17 +20,21 @@
 	</a>
 
 	<!-- NAVIGATION BAR-->
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    	<div class="navbar-nav">
-		    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-		    <a class="nav-link" href="inventory.php">Inventory</a>
-		    <a class="nav-link" href="invoice.php">Invoice</a>
-		    <a class="nav-link" href="pricing.php">Pricing</a>
-    	</div>
-    </div>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+	    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+	    <a class="nav-link" href="inventory.php">Inventory</a>
+	    <a class="nav-link" href="invoice.php">Invoice</a>
+	    <a class="nav-link" href="settings.php">Settings</a>
+		</div>
+	</div>
 
     <!-- LOGOUT BUTTON -->
     <div class="text-end">
+    	<a href="profile.php">
+    		<img src="../img/kobie.jpg" class="rounded-circle border border-3 m-1 me-3" width="40px">
+    	</a>
+
     	<button class="btn btn-danger me-5 text-end">
 			<i class="fa-solid fa-right-from-bracket bi me-2"></i>Logout
 		</button>
