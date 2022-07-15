@@ -1,0 +1,7 @@
+FOR ADMIN
+admin
+admin
+
+FOR CASHIER
+Lloyd
+password123

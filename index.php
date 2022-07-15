@@ -1,9 +1,21 @@
+<?php
+session_start();
+
+if (isset($_SESSION["position"]) && $_SESSION["position"] == 'Admin') {
+    header("location: admin/index.php");
+    exit;
+}
+elseif (isset($_SESSION["position"]) && $_SESSION["position"] == 'User') {
+    header("location: php/kiosk.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Dashboard</title>
+	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/fontawesome.css">
@@ -27,24 +39,23 @@
         		<h4 class="fs-1">Welcome!</h4>
         		<p>Sign in to your Account</p>
 
-        		<form class="form-control border-0 mt-2" action="#" method="post">
+        		<form class="form-control border-0 mt-2" action="auth.php" method="post">
 
         			<!-- USERNAME -->
         			<div class="input-group flex-nowrap">
 							  <span class="input-group-text bg-white text-muted border-end-0" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-							  <input type="text" class="form-control border-start-0" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+							  <input name="username" type="text" class="form-control border-start-0" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
 							</div>
 
 							<!-- PASSWORD -->
         			<div class="input-group flex-nowrap mt-3">
 							  <span class="input-group-text bg-white text-muted" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
-							  <input type="text" class="form-control border-start-0" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping">
+							  <input name="password" type="password" class="form-control border-start-0" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping">
 							</div>
 
 							<div class="row m-5 mt-4">
-								<button class="btn btn-outline-primary mb-2">Login</button>
-								<p>or</p>
-								<button class="btn btn-outline-success">Register</button>
+								<button class="btn btn-outline-primary mb-2" type="submit">Login</button>
+								<br>
 							</div>
 
 							<div class="row">

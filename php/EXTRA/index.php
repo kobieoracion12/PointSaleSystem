@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Dashboard</title>
+	<title>User</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
@@ -29,16 +29,19 @@
 		</div>
 	</div>
 
+		<form action="logout.php">
     <!-- LOGOUT BUTTON -->
     <div class="text-end">
     	<a href="profile.php">
     		<img src="../img/kobie.jpg" class="rounded-circle border border-3 m-1 me-3" width="40px">
     	</a>
 
-    	<button class="btn btn-danger me-5 text-end">
+    
+    	<button type="submit" class="btn btn-danger me-5 text-end">
 			<i class="fa-solid fa-right-from-bracket bi me-2"></i>Logout
-		</button>
+			</button>
     </div>
+    </form>
   </div>
 </nav>
 
