@@ -1,12 +1,33 @@
 <?php
 session_start();
+function createRandomPassword() {
+    $chars = "003232303232023232023456789";
+    srand((double)microtime()*1000000);
+    $i = 0;
+    $pass = '' ;
+    while ($i <= 7) {
 
+        $num = rand() % 33;
+
+        $tmp = substr($chars, $num, 1);
+
+        $pass = $pass . $tmp;
+
+        $i++;
+
+    }
+    return $pass;
+}
+$finalcode=createRandomPassword();
 if (!isset($_SESSION["username"])) {
     header("location: ../admin/dashboard.php");
 
   
 }
-
+if (!isset($_SESSION["position"]) || $_SESSION["position"] != 'Admin') {
+  header("location: ../php/kiosk.php?invoice=".$finalcode);
+  exit;
+}
 include_once '../process.php';
 ?>
 
@@ -50,7 +71,7 @@ include_once '../process.php';
     <div class="text-end">
     	<h5 class="fa-regular me-2">Welcome: <u><?php echo $_SESSION['username']; ?></u></h5>
 
-    	<button type="submit" class="btn btn-danger me-5 text-end">
+    	<button type="button" data-bs-target="#logout" data-bs-toggle="modal" class="btn btn-danger me-5 text-end">
 			<i class="fa-solid fa-right-from-bracket bi me-2"></i>Logout
 			</button>
     </div>
@@ -62,7 +83,7 @@ include_once '../process.php';
 <div class="container-fluid">
 	<div class="row m-1 mt-3">
 		<div class="col-12">
-			<h4 class="m-4 ms-5">Personal Dashboard</h4>
+			<h4 class="m-4 ms-5">Dashboard</h4>
 		</div>
 	</div>
 
@@ -163,7 +184,33 @@ include_once '../process.php';
 			</div>
 		</div>
 	</div>
-</div>
+</div> 
+<div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="mediumModalLabel"></h5>
+                                </button>
+                            </div>
+
+                            <form action="logout.php" method="POST">
+                                <div class="modal-body">
+
+                                
+                                        <p align="center">Are you sure? You want to Logout?</p>
+
+                                        <div class="modal-footer">
+                                            <button type="submit" name="deletedata" class="btn btn-success">YES</button>
+                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">NO</button>
+                                        </div>
+                            </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+
 
 
 

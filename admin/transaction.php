@@ -50,7 +50,7 @@ include_once '../process.php';
     <div class="text-end">
     	<h5 class="fa-regular me-2">Welcome: <u><?php echo $_SESSION['username']; ?></u></h5>
 
-    	<button type="submit" class="btn btn-danger me-5 text-end">
+    	<button type="button" data-bs-target="#logout" data-bs-toggle="modal" class="btn btn-danger me-5 text-end">
 			<i class="fa-solid fa-right-from-bracket bi me-2"></i>Logout
 			</button>
     </div>
@@ -103,7 +103,31 @@ include_once '../process.php';
         </table>
 	</div>
 </div>
+<div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="mediumModalLabel"></h5>
+                                </button>
+                            </div>
 
+                            <form action="logout.php" method="POST">
+                                <div class="modal-body">
+
+                                
+                                        <p align="center">Are you sure? You want to Logout?</p>
+
+                                        <div class="modal-footer">
+                                            <button type="submit" name="deletedata" class="btn btn-success">YES</button>
+                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">NO</button>
+                                        </div>
+                            </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
 
 </body>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
