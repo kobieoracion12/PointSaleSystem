@@ -46,6 +46,7 @@ $opt1 .= "</select>";
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="../css/brands.css">
 	<link rel="stylesheet" type="text/css" href="../css/solid.css">
+    <link rel="icon" href="../img/logo.ico">
 </head>
 <body>
 

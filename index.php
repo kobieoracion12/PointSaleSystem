@@ -21,6 +21,7 @@ elseif (isset($_SESSION["position"]) && $_SESSION["position"] == 'User') {
 	<link rel="stylesheet" type="text/css" href="css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="css/brands.css">
 	<link rel="stylesheet" type="text/css" href="css/solid.css">
+	<link rel="icon" href="img/logo.ico">
 </head>
 <body class="login-background">
 
@@ -68,7 +69,32 @@ elseif (isset($_SESSION["position"]) && $_SESSION["position"] == 'User') {
 			</div>
 		</div>	
 	</div>	
-</div>	
+</div>
+<div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="mediumModalLabel"></h5>
+                                </button>
+                            </div>
+
+                            <form action="logout.php" method="POST">
+                                <div class="modal-body">
+
+                                
+                                        <p align="center">Are you sure? You want to Logout?</p>
+
+                                        <div class="modal-footer">
+                                            <button type="submit" name="deletedata" class="btn btn-success">YES</button>
+                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">NO</button>
+                                        </div>
+                            </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>	
 
 </body>
 <script type="text/javascript" src="js/bootstrap.js"></script>

@@ -21,6 +21,7 @@ include_once '../process.php';
 	<link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
 	<link rel="stylesheet" type="text/css" href="../css/brands.css">
 	<link rel="stylesheet" type="text/css" href="../css/solid.css">
+    <link rel="icon" href="../img/logo.ico">
 </head>
 <style type="text/css">
     @media print{
