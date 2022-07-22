@@ -86,7 +86,6 @@ while ($result = mysqli_fetch_array($opt)) { ?>
               <th>Product Name</th>
               <th hidden="">Desciption</th>
               <th>Quantity</th>
-              <th>On Hand</th>
               <th>Category</th>
               <th>Expiration Date</th>
               <th align="center">Actions</th>
@@ -101,21 +100,45 @@ while ($result = mysqli_fetch_array($opt)) { ?>
             	while ($row=mysqli_fetch_assoc($query)){ ?>
 
               <tr>
+                <?php
+                $stay = $row['onhand'];
+                if ($stay <= 0){
+                    $zero = "UPDATE product SET onhand = 0 WHERE onhand <= 0";
+                    $orez = mysqli_query($config, $zero);
+
+                ?>
+
                 <td hidden=""><?php echo $row['product_id']; ?></td>
                 <td><?php echo $row['product_no']; ?></td>
                 <td><?php echo $row['product_name']; ?></td>
                 <td hidden=""><?php echo $row['description']; ?></td>               
-                <td><?php echo $row['stockin']; ?></td>
+                <td>0</td>
+                <td><?php echo $row['category_name']; ?></td>
+                <td><?php echo $row['expire_date']; ?></td>
+                <td>
+                <button class="btn btn-warning editbtn" data-bs-toggle="modal" type="button"><i class="fas fa-edit" data-toggle="tooltip" title="edit"></i>Edit</button>
+                </td>
+
+                <?php
+                }elseif($stay > 0) {
+
+                ?>
+                <td hidden=""><?php echo $row['product_id']; ?></td>
+                <td><?php echo $row['product_no']; ?></td>
+                <td><?php echo $row['product_name']; ?></td>
+                <td hidden=""><?php echo $row['description']; ?></td>               
                 <td><?php echo $row['onhand']; ?></td>
                 <td><?php echo $row['category_name']; ?></td>
                 <td><?php echo $row['expire_date']; ?></td>
                 <td>
                 <button class="btn btn-warning editbtn" data-bs-toggle="modal" type="button"><i class="fas fa-edit" data-toggle="tooltip" title="edit"></i>Edit</button>
-
                 </td>
-                </tr>
+                
                 <?php } ?>
+               <?php } ?> 
+            </tr>
           </tbody>
+
            
 
         </table>
@@ -148,15 +171,10 @@ while ($result = mysqli_fetch_array($opt)) { ?>
                             <div class="form-group">
                                 <label> Description </label>
                                 <textarea rows="3" type="text" name="description" id="description" class="form-control" readonly></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label> Quantity </label>
-                                <input type="text" name="stockin" id="stockin" class="form-control">
                             </div>                   
 
                             <div class="form-group">
-                                <label> On Hand </label>
+                                <label> Quantity </label>
                                 <input type="text" name="onhand" id="onhand" class="form-control">
                             </div>
 
@@ -221,8 +239,7 @@ while ($result = mysqli_fetch_array($opt)) { ?>
             $('#product_no').val(data[1]);
             $('#product_name').val(data[2]);
             $('#description').val(data[3]);
-            $('#stockin').val(data[4]);
-            $('#onhand').val(data[5]);
+            $('#onhand').val(data[4]);
 
         })
     });

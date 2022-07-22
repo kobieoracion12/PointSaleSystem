@@ -7,11 +7,10 @@
 			$product_id = $_POST['product_id'];
 			$product_name = $_POST['product_name'];
 		    $description = $_POST['description'];
-		    $stockin = $_POST['stockin'];
 		    $onhand = $_POST['onhand'];
 		 
 		
-			$sqlupdate = "UPDATE product SET product_name= '$product_name', description='$description',stockin='$stockin',onhand='$onhand'WHERE product_id = '$product_id' ";
+			$sqlupdate = "UPDATE product SET product_name= '$product_name', description='$description',onhand='$onhand'WHERE product_id = '$product_id' ";
 			$sqlget = mysqli_query($config,$sqlupdate);
 
 			if(!$sqlget) {

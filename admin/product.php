@@ -171,11 +171,6 @@ $opt1 .= "</select>";
 
                             <div class="form-group">
                                 <label> Quantity </label>
-                                <input type="text" name="stockin" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label> On Hand </label>
                                 <input type="text" name="onhand" class="form-control">
                             </div>  
 

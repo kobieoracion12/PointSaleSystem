@@ -56,6 +56,7 @@ include_once '../process.php';
 		<table class="table">
                             <thead>
                                 <tr class="text-light" style="background: black;">
+                                    <th scope="col" hidden=""><b>Invoice</b></th>
                                     <th scope="col"><b>Product Code</b></th>
                                     <th scope="col"><b>Product Name</b></th>
                                     <th scope="col"><b>Quantity</b></th>
@@ -67,13 +68,14 @@ include_once '../process.php';
 
                             		<?php 
                             		$detail = $_GET['detail'];
-									         			$query=mysqli_query($config, "SELECT * FROM sales, product WHERE (sales.product_id = product.product_id) AND (invoice_code = $detail)");
+									         			$query=mysqli_query($config, "SELECT * FROM sales, product WHERE (sales.product_id = product.product_id) AND (invoice_code = '$detail')");
 
 									            	while ($row=mysqli_fetch_assoc($query)){ ?>
                                
                                 
                                 <tr>
-                                    <td><?php echo $_GET['detail']?></td>
+                                    <td hidden=""><?php echo $_GET['detail']?></td>
+                                    <td><?php echo $row['product_no']?></td>
                                     <td><?php echo $row['product_name']?></td>
                                     <td><?php echo $row['quantity']?></td>
                                     <td>₱ <?php echo $row['price']?></td>
@@ -129,7 +131,7 @@ include_once '../process.php';
                             </tbody>
 
                         </table>
-                        <input class="hidden btn btn-success" type="button" onclick="window.print()" value="Download Receipt" />
+                        <input class="hidden btn btn-success" type="button" onclick="window.print()" value="Print" />
 	</div>
 </div>
 
